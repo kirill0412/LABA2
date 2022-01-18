@@ -2,14 +2,13 @@
 #define WINVER 0x0502
 #include <windows.h>
 #include <sddl.h>
-#include "module.h"
+#include "module.cpp"
 
 using namespace std;
 
 int  main()
 {
     string InputName="\\\\.\\mailslot\\test";
-    string InputName; // \\.\mailslot\test
     cout << "[SYS] Enter mailslot fullpath: ";
     cin>> InputName;
     LPCTSTR SlotName= InputName.c_str();
@@ -39,16 +38,12 @@ int  main()
         {
             return 0;
         }
-        else if(command == "read")
-        else if((command == "read") && (isServer))
+         else if((command == "read") && (isServer))
         {
-            cout<<"Im read"<<endl;
             ReadSlot(hSlot);
         }
-        else if (command == "write")
         else if ((command == "write") && (!isServer))
         {
-            cout<<"Im write"<<endl;
             cout<<"[OUT] Type your message here. Type '.' in new line to terminate."<<endl;
             string msg,line, tmp;
 
@@ -65,11 +60,9 @@ int  main()
         }
         else
         {
-            cout<<"wrong"<<endl;
             ;
         }
     }
 
-return 0;
     return 0;
 }
